@@ -1,0 +1,62 @@
+# Core Framework
+fastapi==0.104.1
+uvicorn==0.24.0
+pydantic==2.5.0
+python-dotenv==1.0.1
+loguru==0.7.2
+
+# Database
+sqlalchemy==2.0.25
+psycopg2-binary==2.9.9
+asyncpg==0.29.0
+redis==5.0.1
+
+# AI/ML - TESTED VERSIONS
+openai==1.6.1  # Compatible with langchain-openai
+langchain==0.0.350
+langchain-community==0.0.10
+langchain-openai==0.0.2
+llama-index==0.9.15
+chromadb==0.4.18
+sentence-transformers==2.2.2
+
+# Web Scraping
+playwright==1.40.0
+beautifulsoup4==4.12.2
+aiohttp==3.9.1
+requests==2.32.3
+lxml==4.9.3
+
+# Task Queue
+celery==5.3.4
+flower==2.0.1
+
+# Document Parsing
+pypdf==3.17.4
+python-docx==1.1.0
+unstructured==0.12.2
+
+# Utilities
+numpy==1.24.4
+pandas==1.5.3
+scikit-learn==1.2.2
+tenacity==8.2.3
+pyyaml==6.0.2
+tqdm==4.66.4
+
+# Testing
+pytest==8.2.0
+pytest-asyncio==0.21.1
+faker==20.1.0
+
+# LangGraph (optional, for workflow orchestration)
+langgraph==0.0.13
+
+# Transformers & NLP
+transformers==4.38.2
+tokenizers==0.15.2
+sentencepiece==0.2.0
+
+# PyTorch (optional, for local models)
+# torch==2.2.2  # Uncomment if you need PyTorch
+# torchvision==0.17.2

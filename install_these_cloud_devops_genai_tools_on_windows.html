@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloud & DevOps Tools Guide for GenAI Project</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #e2e8f0;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: rgba(30, 41, 59, 0.7);
+            border-radius: 15px;
+            border-left: 5px solid #3b82f6;
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            background: linear-gradient(90deg, #60a5fa, #818cf8);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            color: #94a3b8;
+            margin-bottom: 20px;
+        }
+        
+        .category {
+            background: rgba(30, 41, 59, 0.9);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 30px;
+            border: 1px solid #334155;
+            transition: transform 0.3s ease;
+        }
+        
+        .category:hover {
+            transform: translateY(-5px);
+            border-color: #60a5fa;
+        }
+        
+        .category-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #475569;
+        }
+        
+        .category-icon {
+            font-size: 2rem;
+            margin-right: 15px;
+            color: #60a5fa;
+        }
+        
+        h2 {
+            font-size: 1.8rem;
+            color: #f1f5f9;
+        }
+        
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 20px;
+        }
+        
+        .tool-card {
+            background: rgba(15, 23, 42, 0.8);
+            border-radius: 10px;
+            padding: 20px;
+            border-left: 4px solid;
+            transition: all 0.3s ease;
+        }
+        
+        .tool-card:hover {
+            background: rgba(15, 23, 42, 1);
+            transform: translateX(5px);
+        }
+        
+        .tool-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .tool-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #e2e8f0;
+        }
+        
+        .tool-status {
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        
+        .essential { background: #10b981; color: white; }
+        .recommended { background: #f59e0b; color: white; }
+        .optional { background: #6b7280; color: white; }
+        
+        .tool-purpose {
+            color: #94a3b8;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+        
+        .install-steps {
+            background: rgba(30, 41, 59, 0.5);
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+        
+        .install-steps h4 {
+            color: #60a5fa;
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
+        
+        .steps-list {
+            list-style-type: none;
+        }
+        
+        .steps-list li {
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .steps-list li:before {
+            content: "▶";
+            position: absolute;
+            left: 0;
+            color: #60a5fa;
+            font-size: 0.8rem;
+        }
+        
+        a {
+            color: #60a5fa;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        a:hover {
+            color: #93c5fd;
+            text-decoration: underline;
+        }
+        
+        .link-button {
+            display: inline-block;
+            background: #3b82f6;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 6px;
+            margin-top: 10px;
+            font-weight: 500;
+            transition: background 0.3s ease;
+        }
+        
+        .link-button:hover {
+            background: #2563eb;
+            text-decoration: none;
+        }
+        
+        .phase-indicator {
+            display: inline-block;
+            padding: 4px 10px;
+            background: #475569;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            margin-top: 10px;
+            color: #cbd5e1;
+        }
+        
+        .dev { background: #0ea5e9; }
+        .cicd { background: #8b5cf6; }
+        .deploy { background: #10b981; }
+        .monitor { background: #f59e0b; }
+        
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            color: #94a3b8;
+            border-top: 1px solid #334155;
+        }
+        
+        @media (max-width: 768px) {
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🛠️ Cloud & DevOps Tools Guide</h1>
+            <p class="subtitle">Comprehensive software checklist for GenAI Job Portal Project</p>
+            <p>Last Updated: November 2023 | For Windows 10/11 Development</p>
+        </header>
+
+        <!-- Category 1: Core Development Tools -->
+        <div class="category">
+            <div class="category-header">
+                <div class="category-icon">💻</div>
+                <h2>Core Development Tools</h2>
+            </div>
+            <div class="tools-grid">
+                <!-- Tool 1 -->
+                <div class="tool-card">
+                    <div class="tool-header">
+                        <div class="tool-name">Python 3.10+</div>
+                        <span class="tool-status essential">ESSENTIAL</span>
+                    </div>
+                    <p class="tool-purpose">Primary language for GenAI, LLM integration, and backend services</p>
+                    <div class="install-steps">
+                        <h4>📥 Installation:</h4>
+                        <ul class="steps-list">
+                            <li>Download from <a href="https://www.python.org/downloads/" target="_blank">python.org</a></li>
+                            <li>Check "Add Python to PATH" during installation</li>
+                            <li>Verify: <code>python --version</code> in terminal</li>
+                        </ul>
+                        <span class="phase-indicator dev">Development Phase</span>
+                    </div>
+                </div>
+
+                <!-- Tool 2 -->
+                <div class="tool-card">
+                    <div class="tool-header">
+                        <div class="tool-name">Git</div>
+                        <span class="tool-status essential">ESSENTIAL</span>
+                    </div>
+                    <p class="tool-purpose">Version control, collaboration, and GitHub repository management</p>
+                    <div class="install-steps">
+                        <h4>📥 Installation:</h4>
+                        <ul class="steps-list">
+                            <li>Download from <a href="https://git-scm.com/downloads" target="_blank">git-scm.com</a></li>
+                            <li>Use default settings except:</li>
+                            <li>Choose "Git from command line and 3rd-party software"</li>
+                            <li>Set default branch name to "main"</li>
+                        </ul>
+                        <a href="https://git-scm.com/downloads" class="link-button" target="_blank">Download Git</a>
+                    </div>
+                </div>
+
+                <!-- Tool 3 -->
+                <div class="tool-card">
+                    <div class="tool-header">
+                        <div class="tool-name">VS Code</div>
+                        <span class="tool-status essential">ESSENTIAL</span>
+                    </div>
+                    <p class="tool-purpose">Primary code editor with extensions for Python, Docker, and cloud development</p>
+                    <div class="install-steps">
+                        <h4>📥 Installation:</h4>
+                        <ul class="steps-list">
+                            <li>Download from <a href="https://code.visualstudio.com/download" target="_blank">code.visualstudio.com</a></li>
+                            <li>Install Python, Docker, GitLens extensions</li>
+                            <li>Configure terminal to use Git Bash</li>
+                        </ul>
+                        <a href="https://code.visualstudio.com/download" class="link-button" target="_blank">Download VS Code</a>
+                    </div>
+                </div>
+
+                <!-- Tool 4 -->
+                <div class="tool-card">
+                    <div class="tool-header">
+                        <div class="tool-name">Docker Desktop</div>
+                        <span class="tool-status essential">ESSENTIAL</span>
+                    </div>
+                    <p class="tool-purpose">Containerization for consistent development and deployment environments</p>
+                    <div class="install-steps">
+                        <h4>📥 Installation:</h4>
+                        <ul class="steps-list">
+                            <li>Download from <a href="https://www.docker.com/products/docker-desktop/" target="_blank">docker.com</a></li>
+                            <li>Enable WSL2 backend (Windows Subsystem for Linux)</li>
+                            <li>Allocate 4GB RAM and 2 CPUs in settings</li>
+                            <li>Verify: <code>docker --version</code></li>
+                        </ul>
+                        <span class="phase-indicator dev">Development Phase</span>
+                        <span class="phase-indicator deploy">Deployment Phase</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Category 2: Multi-Cloud CLIs -->
+        <div class="category">
+            <div class="category-header">
+                <div class="category-icon">☁️</div>
+                <h2>Multi-Cloud CLIs & SDKs</h2>
+            </div>
+            <div class="tools-grid">
+                <!-- Azure -->
+                <div class="tool-card">
+                    <div class="tool-header">
+                        <div class="tool-name">Azure CLI</div>
+                        <span class="tool-status essential">ESSENTIAL</span>
+                    </div>
+                    <p class="tool-purpose">Manage Azure resources, deploy to Azure, and configure Copilot integrations</p>
+                    <div class="install-steps">
+                        <h4>📥 Installation:</h4>
+                        <ul class="steps-list">
+                            <li>Windows: <code>winget install Microsoft.AzureCLI</code></li>
+                            <li>Or download MSI from <a href="https://docs.microsoft.com/cli/azure/install-azure-cli" target="_blank">docs.microsoft.com</a></li>
+                            <li>Verify: <code>az --version</code></li>
+                            <li>Login: <code>az login</code></li>
+                        </ul>
+                        <span class="phase-indicator deploy">Deployment Phase</span>
+                    </div>
+                </div>
+
+                <!-- AWS -->
+                <div class="tool-card">
+                    <div class="tool-header">
+                        <div class="tool-name">AWS CLI v2</div>
+                        <span class="tool-status recommended">RECOMMENDED</span>
+                    </div>
+                    <p class="tool-purpose">Manage AWS services, deploy to EC2/EKS, and configure S3 for ML models</p>
+                    <div class="install-steps">
+                        <h4>📥 Installation:</h4>
+                        <ul class="steps-list">
+                            <li>Download MSI from <a href="https://aws.amazon.com/cli/" target="_blank">aws.amazon.com/cli</a></li>
+                            <li>Verify: <code>aws --version</code></li>
+                            <li>Configure: <code>aws configure</code></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- GCP -->
+                <div class="tool-card">
+                    <div class="tool-header">
+                        <div class="tool-name">Google Cloud SDK</div>
+                        <span class="tool-status recommended">RECOMMENDED</span>
+                    </div>
+                    <p class="tool-purpose">Manage GCP resources, deploy to GKE, and use Vertex AI for GenAI models</p>
+                    <div class="install-steps">
+                        <h4>📥 Installation:</h4>
+                        <ul class="steps-list">
+                            <li>Download from <a href="https://cloud.google.com/sdk/docs/install" target="_blank">cloud.google.com/sdk</a></li>
+                            <li>Run installer and initialize: <code>gcloud init</code></li>
+                            <li>Install kubectl: <code>gcloud components install kubectl</code></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Cloud Foundry -->
+                <div class="tool-card">
+                    <div class="tool-header">
+                        <div class="tool-name">Terraform</div>
+                        <span class="tool-status essential">ESSENTIAL</span>
+                    </div>
+                    <p class="tool-purpose">Infrastructure as Code (IaC) for provisioning cloud resources across providers</p>
+                    <div class="install-steps">
+                        <h4>📥 Installation:</h4>
+                        <ul class="steps-list">
+                            <li>Download from <a href="https://www.terraform.io/downloads" target="_blank">terraform.io</a></li>
+                            <li>Extract and add to PATH</li>
+                            <li>Verify: <code>terraform --version</code></li>
+                        </ul>
+                        <span class="phase-indicator deploy">Deployment Phase</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Category 3: Microsoft Copilot Ecosystem -->
+        <div class="category">
+            <div class="category-header">
+                <div class="category-icon">🤖</div>
+                <h2>Microsoft Copilot Ecosystem</h2>
+            </div>
+            <div class="tools-grid">
+                <!-- Power Platform CLI -->
+                <div class="tool-card">
+                    <div class="tool-header">
+                        <div class="tool-name">Power Platform CLI</div>
+                        <span class="tool-status essential">ESSENTIAL</span>
+                    </div>
+                    <p class="tool-purpose">Develop, build, and deploy Power Platform solutions including Copilot Studio</p>
+                    <div class="install-steps">
+                        <h4>📥 Installation:</h4>
+                        <ul class="steps-list">
+                            <li>Install via PowerShell: <code>pac install latest</code></li>
+                            <li>Or download from <a href="https://aka.ms/PowerAppsCLI" target="_blank">Power Platform CLI</a></li>
+                            <li>Verify: <code>pac --version</code></li>
+                        </ul>
+                        <span class="phase-indicator dev">Development Phase</span>
+                    </div>
+                </div>
+
+                <!-- PowerShell 7 -->
+                <div class="tool-card">
+                    <div class="tool-header">
+                        <div class="tool-name">PowerShell 7+</div>
+                        <span class="tool-status essential">ESSENTIAL</span>
+                    </div>
+                    <p class="tool-purpose">Automation scripts, Azure resource management, and Copilot deployment</p>
+                    <div class="install-steps">
+                        <h4>📥 Installation:</h4>
+                        <ul class="steps-list">
+                            <li>Download from <a href="https://github.com/PowerShell/PowerShell" target="_blank">GitHub</a></li>
+                            <li>Or: <code>winget install Microsoft.PowerShell</code></li>
+                            <li>Set as default terminal in VS Code</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Azure Dev CLI -->
+                <div class="tool-card">
+                    <div class="tool-header">
+                        <div class="tool-name">Azure Developer CLI (azd)</div>
+                        <span class="tool-status recommended">RECOMMENDED</span>
+                    </div>
+                    <p class="tool-purpose">Accelerate deployment of GenAI apps to Azure with pre-built templates</p>
+                    <div class="install-steps">
+                        <h4>📥 Installation:</h4>
+                        <ul class="steps-list">
+                            <li>Windows: <code>powershell -ex AllSigned -c "irm https://aka.ms/install-azd.ps1 | iex"</code></li>
+                            <li>Verify: <code>azd version</code></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Category 4: DevOps & CI/CD -->
+        <div class="category">
+            <div class="category-header">
+                <div class="category-icon">⚡</div>
+                <h2>DevOps & CI/CD Tools</h2>
+            </div>
+            <div class="tools-grid">
+                <!-- Kubernetes -->
+                <div class="tool-card">
+                    <div class="tool-header">
+                        <div class="tool-name">kubectl</div>
+                        <span class="tool-status essential">ESSENTIAL</span>
+                    </div>
+                    <p class="tool-purpose">Kubernetes cluster management for container orchestration</p>
+                    <div class="install-steps">
+                        <h4>📥 Installation:</h4>
+                        <ul class="steps-list">
+                            <li>Via Chocolatey: <code>choco install kubernetes-cli</code></li>
+                            <li>Or download from <a href="https://kubernetes.io/docs/tasks/tools/" target="_blank">kubernetes.io</a></li>
+                            <li>Verify: <code>kubectl version --client</code></li>
+                        </ul>
+                        <span class="phase-indicator deploy">Deployment Phase</span>
+                    </div>
+                </div>
+
+                <!-- Helm -->
+                <div class="tool-card">
+                    <div class="tool-header">
+                        <div class="tool-name">Helm</div>
+                        <span class="tool-status recommended">RECOMMENDED</span>
+                    </div>
+                    <p class="tool-purpose">Kubernetes package manager for deploying complex applications</p>
+                    <div class="install-steps">
+                        <h4>📥 Installation:</h4>
+                        <ul class="steps-list">
+                            <li>Via Chocolatey: <code>choco install kubernetes-helm</code></li>
+                            <li>Or download from <a href="https://helm.sh/docs/intro/install/" target="_blank">helm.sh</a></li>
+                            <li>Verify: <code>helm version</code></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- GitHub CLI -->
+                <div class="tool-card">
+                    <div class="tool-header">
+                        <div class="tool-name">GitHub CLI (gh)</div>
+                        <span class="tool-status recommended">RECOMMENDED</span>
+                    </div>
+                    <p class="tool-purpose">Manage GitHub repositories, issues, PRs from command line</p>
+                    <div class="install-steps">
+                        <h4>📥 Installation:</h4>
+                        <ul class="steps-list">
+                            <li>Download from <a href="https://cli.github.com/" target="_blank">cli.github.com</a></li>
+                            <li>Or: <code>winget install GitHub.cli</code></li>
+                            <li>Authenticate: <code>gh auth login</code></li>
+                        </ul>
+                        <span class="phase-indicator cicd">CI/CD Phase</span>
+                    </div>
+                </div>
+
+                <!-- Jenkins -->
+                <div class="tool-card">
+                    <div class="tool-header">
+                        <div class="tool-name">Jenkins (Local)</div>
+                        <span class="tool-status optional">OPTIONAL</span>
+                    </div>
+                    <p class="tool-purpose">CI/CD server for automation pipelines (can run in Docker)</p>
+                    <div class="install-steps">
+                        <h4>📥 Installation:</h4>
+                        <ul class="steps-list">
+                            <li>Run in Docker: <code>docker run -p 8080:8080 jenkins/jenkins:lts</code></li>
+                            <li>Access at http://localhost:8080</li>
+                            <li>Get initial admin password from container logs</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Category 5: Database & Monitoring -->
+        <div class="category">
+            <div class="category-header">
+                <div class="category-icon">📊</div>
+                <h2>Database & Monitoring Tools</h2>
+            </div>
+            <div class="tools-grid">
+                <!-- PostgreSQL -->
+                <div class="tool-card">
+                    <div class="tool-header">
+                        <div class="tool-name">PostgreSQL</div>
+                        <span class="tool-status recommended">RECOMMENDED</span>
+                    </div>
+                    <p class="tool-purpose">Relational database for application data (can use Docker version)</p>
+                    <div class="install-steps">
+                        <h4>📥 Installation:</h4>
+                        <ul class="steps-list">
+                            <li>Docker: <code>docker run --name postgres -e POSTGRES_PASSWORD=password -d postgres</code></li>
+                            <li>Or download from <a href="https://www.postgresql.org/download/" target="_blank">postgresql.org</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Redis -->
+                <div class="tool-card">
+                    <div class="tool-header">
+                        <div class="tool-name">Redis</div>
+                        <span class="tool-status recommended">RECOMMENDED</span>
+                    </div>
+                    <p class="tool-purpose">Caching and session management for GenAI applications</p>
+                    <div class="install-steps">
+                        <h4>📥 Installation:</h4>
+                        <ul class="steps-list">
+                            <li>Docker: <code>docker run --name redis -p 6379:6379 -d redis</code></li>
+                            <li>Or use Redis for Windows from Microsoft Archive</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Prometheus & Grafana -->
+                <div class="tool-card">
+                    <div class="tool-header">
+                        <div class="tool-name">Prometheus + Grafana</div>
+                        <span class="tool-status optional">OPTIONAL</span>
+                    </div>
+                    <p class="tool-purpose">Monitoring and visualization for application metrics</p>
+                    <div class="install-steps">
+                        <h4>📥 Installation:</h4>
+                        <ul class="steps-list">
+                            <li>Use docker-compose from <a href="https://grafana.com/docs/grafana/latest/setup-grafana/installation/docker/" target="_blank">Grafana docs</a></li>
+                            <li>Access Grafana at http://localhost:3000 (admin/admin)</li>
+                        </ul>
+                        <span class="phase-indicator monitor">Monitoring Phase</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Category 6: Package Managers -->
+        <div class="category">
+            <div class="category-header">
+                <div class="category-icon">📦</div>
+                <h2>Package Managers</h2>
+            </div>
+            <div class="tools-grid">
+                <!-- Chocolatey -->
+                <div class="tool-card">
+                    <div class="tool-header">
+                        <div class="tool-name">Chocolatey</div>
+                        <span class="tool-status essential">ESSENTIAL</span>
+                    </div>
+                    <p class="tool-purpose">Windows package manager for automated software installation</p>
+                    <div class="install-steps">
+                        <h4>📥 Installation:</h4>
+                        <ul class="steps-list">
+                            <li>Run PowerShell as Administrator</li>
+                            <li><code>Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))</code></li>
+                            <li>Verify: <code>choco --version</code></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- NVM -->
+                <div class="tool-card">
+                    <div class="tool-header">
+                        <div class="tool-name">nvm-windows</div>
+                        <span class="tool-status recommended">RECOMMENDED</span>
+                    </div>
+                    <p class="tool-purpose">Node.js version management for frontend development</p>
+                    <div class="install-steps">
+                        <h4>📥 Installation:</h4>
+                        <ul class="steps-list">
+                            <li>Download from <a href="https://github.com/coreybutler/nvm-windows/releases" target="_blank">GitHub</a></li>
+                            <li>Install Node LTS: <code>nvm install lts</code></li>
+                            <li>Use it: <code>nvm use lts</code></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Installation Timeline -->
+        <div class="category">
+            <div class="category-header">
+                <div class="category-icon">⏱️</div>
+                <h2>Installation Timeline & Priority</h2>
+            </div>
+            <div style="padding: 20px; background: rgba(30, 41, 59, 0.7); border-radius: 10px; margin-top: 20px;">
+                <h3 style="color: #60a5fa; margin-bottom: 15px;">Recommended Installation Order:</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px;">
+                    <div style="background: rgba(15, 23, 42, 0.9); padding: 15px; border-radius: 8px;">
+                        <h4 style="color: #10b981;">Day 1: Core Foundation</h4>
+                        <ul style="margin-left: 20px; color: #cbd5e1;">
+                            <li>Git & VS Code</li>
+                            <li>Python 3.10+</li>
+                            <li>Docker Desktop</li>
+                            <li>Chocolatey</li>
+                        </ul>
+                    </div>
+                    <div style="background: rgba(15, 23, 42, 0.9); padding: 15px; border-radius: 8px;">
+                        <h4 style="color: #0ea5e9;">Day 2: Cloud Tools</h4>
+                        <ul style="margin-left: 20px; color: #cbd5e1;">
+                            <li>Azure CLI</li>
+                            <li>Terraform</li>
+                            <li>PowerShell 7</li>
+                            <li>kubectl</li>
+                        </ul>
+                    </div>
+                    <div style="background: rgba(15, 23, 42, 0.9); padding: 15px; border-radius: 8px;">
+                        <h4 style="color: #8b5cf6;">Day 3: Copilot Ecosystem</h4>
+                        <ul style="margin-left: 20px; color: #cbd5e1;">
+                            <li>Power Platform CLI</li>
+                            <li>Azure Developer CLI</li>
+                            <li>GitHub CLI</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>🔧 <strong>GenAI Job Portal Project</strong> | Cloud & DevOps Tools Checklist</p>
+            <p style="margin-top: 10px; font-size: 0.9rem; color: #94a3b8;">
+                Save this HTML file locally for reference. Update links as needed.<br>
+                Estimated total installation time: 4-6 hours (including configurations)
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        // Simple script to track installation progress
+        document.addEventListener('DOMContentLoaded', function() {
+            const toolCards = document.querySelectorAll('.tool-card');
+            
+            toolCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    const toolName = this.querySelector('.tool-name').textContent;
+                    console.log(`Installing: ${toolName}`);
+                    
+                    // Add visual feedback
+                    this.style.boxShadow = '0 0 0 2px #3b82f6';
+                    setTimeout(() => {
+                        this.style.boxShadow = '';
+                    }, 1000);
+                });
+            });
+            
+            // Print installation summary
+            console.log('%c🚀 Cloud & DevOps Tools Installation Guide', 'color: #60a5fa; font-size: 16px; font-weight: bold;');
+            console.log('%cTotal tools listed: ' + toolCards.length, 'color: #10b981;');
+        });
+    </script>
+</body>
+</html>
